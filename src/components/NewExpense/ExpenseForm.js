@@ -55,7 +55,7 @@ function ExpenseForm(props) {
 
         const expeseData={
             title:userInput.enteredTitle,
-            amount:userInput.enteredAmount,
+            amount:+userInput.enteredAmount,
             date:new Date(userInput.enteredDate)
         }
         console.log(expeseData);
