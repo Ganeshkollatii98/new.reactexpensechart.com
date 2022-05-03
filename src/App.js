@@ -1,7 +1,9 @@
-
+import React,{useState} from 'react';
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
+
 function App() {
-  const expenses = [
+  const INITIAL_EXPENSES = [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -22,8 +24,23 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  const [expensesList,setExpensesList]=useState(INITIAL_EXPENSES);
+  var addExpenseItem=(expense)=>{
+      var newExpense={
+        id:Math.random().toString(),
+        ...expense
+      }
+      setExpensesList((prevExpenses)=>{
+          return [newExpense,...prevExpenses];
+      });
+      console.log("AfterAddingNewExpense",expensesList);
+  }
   return (
-     <Expenses expenses={expenses}/>
+    <div>
+      <NewExpense toAddExpenseItem={addExpenseItem} />
+      
+      <Expenses expenses={expensesList} />
+    </div>
   );
 }
 
