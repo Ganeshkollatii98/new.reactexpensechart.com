@@ -2,7 +2,6 @@ import React from "react";
 import ExpenseItem from "./ExpenseItem";
 import './ExpenseList.css'
 const ExpenseList = (props) => {
-  console.log("printing", props.filteredExpense);
   
   if (props.filteredExpense.length > 0) {
     return (

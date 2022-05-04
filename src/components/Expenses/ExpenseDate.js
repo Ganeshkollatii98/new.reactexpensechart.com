@@ -1,6 +1,6 @@
 import './ExpenseDate.css';
 function ExpenseDate(props) {
-    const expenseDate=props.date;
+    const expenseDate=new Date(props.date);
 
   return (
     <div className="expense-date">
