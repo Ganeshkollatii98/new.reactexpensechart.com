@@ -11,9 +11,14 @@ function Expenses(props) {
   const getDropDownValue = (selectedValue) => {
     setFilteredYear(selectedValue);
   };
-  const filteredExpenses = props.expenses.filter(
-    (expense) => new Date(expense.date).getFullYear().toString() === filteredYear
-  );
+  let filteredExpenses='';
+  if(props.filteredExpenses!==null)
+  {
+    filteredExpenses = props.expenses.filter(
+      (expense) => new Date(expense.date).getFullYear().toString() === filteredYear
+    );
+  }
+  
 
 
   return (
