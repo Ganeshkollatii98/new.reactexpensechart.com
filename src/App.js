@@ -5,7 +5,7 @@ import NewExpense from "./components/NewExpense/NewExpense";
 function App() {
   // let array=[];
   // localStorage.setItem('expenseObject',JSON.stringify(array));
-  const INITIAL_EXPENSES = [];
+  
   // console.log();
   /* [
     {
@@ -31,7 +31,7 @@ function App() {
  */
   
   const [expensesList, setExpensesList] = useState(JSON.parse(localStorage.getItem('expensesList')));
-  console.log(expensesList);
+  
   
   
   

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
-import ExpensesFilter from "./ExpenseFilter";
+
 function ExpenseItem(props) {
   const expenseDate = props.expense.date;
   const expensePrice = props.expense.amount;
