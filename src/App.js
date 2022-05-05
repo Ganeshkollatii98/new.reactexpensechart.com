@@ -42,7 +42,9 @@ function App() {
     };
     setExpensesList((prevExpenses) => {
       localStorage.clear();
-      localStorage.setItem('expensesList',JSON.stringify([newExpense,...prevExpenses]))
+      if(!prevExpenses){
+        localStorage.setItem('expensesList',JSON.stringify([newExpense,...prevExpenses]))
+      }
       return [newExpense, ...prevExpenses];
     });
     

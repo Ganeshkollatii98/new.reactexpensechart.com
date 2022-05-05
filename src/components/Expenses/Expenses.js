@@ -12,6 +12,7 @@ function Expenses(props) {
     setFilteredYear(selectedValue);
   };
   let filteredExpenses='';
+  console.log(props.expenses);
   if(props.expenses!==null)
   {
     filteredExpenses = props.expenses.filter(
