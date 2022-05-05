@@ -5,7 +5,7 @@ import NewExpense from "./components/NewExpense/NewExpense";
 function App() {
   // let array=[];
   // localStorage.setItem('expenseObject',JSON.stringify(array));
-  
+
   // console.log();
   /* [
     {
@@ -29,12 +29,19 @@ function App() {
     },
   ];
  */
+
+  const localStore=localStorage.getItem("expensesList");
+  if (localStore==null) {
+    localStorage.setItem("expensesList", JSON.stringify([])); 
+  }
+  else{
+    localStorage.setItem("expensesList", localStore);
+  }
+  const [expensesList, setExpensesList] = useState(
+    JSON.parse(localStorage.getItem("expensesList"))
+  );
   
-  const [expensesList, setExpensesList] = useState(JSON.parse(localStorage.getItem('expensesList')));
-  
-  
-  
-  
+
   var addExpenseItem = (expense) => {
     var newExpense = {
       id: Math.random().toString(),
@@ -42,16 +49,17 @@ function App() {
     };
     setExpensesList((prevExpenses) => {
       localStorage.clear();
-      if(!prevExpenses){
-        localStorage.setItem('expensesList',JSON.stringify([newExpense,...prevExpenses]))
-      }
+      console.log("prev", prevExpenses);
+
+      console.log("run run", [newExpense, ...prevExpenses]);
+      localStorage.setItem(
+        "expensesList",
+        JSON.stringify([newExpense, ...prevExpenses])
+      );
       return [newExpense, ...prevExpenses];
     });
-    
-    
-    
   };
-  
+
   return (
     <div>
       <NewExpense toAddExpenseItem={addExpenseItem} />
